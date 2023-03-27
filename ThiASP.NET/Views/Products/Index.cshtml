@@ -1,0 +1,67 @@
+﻿@model List<ThiASP.NET.Models.SanPham>
+@{
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+<style>
+    .color {
+        color: red;
+    }
+
+        .color:hover {
+            color: blue;
+        }
+
+</style>
+<h2 class="text-body"  style="margin:30px  ;font-weight:bold;font-size:x-large">Các sản phẩm của cửa hàng</h2>
+
+    
+
+<div style=" display:flex;margin:30px ; ">
+        <div style="margin-right: 40px">@Html.ActionLink("Hãng sản phẩm", "Index", "Categories", null, new { @class = "btn btn-primary" })</div>
+        <div style="margin-right: 40px">@Html.ActionLink("Thêm sản phẩm", "Add", "Products", null, new { @class = "btn btn-primary" })</div>
+        <div>
+            @using (@Html.BeginForm("Index", "Products", FormMethod.Get))
+            {
+                @Html.DropDownList("Category", "tất cả các hãng")
+                <input type="submit" value="tìm kiếm theo hãng" />
+            }
+        </div>
+</div>
+
+
+
+<table class="table" border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Mã sản phẩm</th>
+        @*<th>Tên hãng</th>*@
+        <th>Tên sản phẩm</th>
+        <th>Ảnh sản phẩm</th>
+        <th>Giá sản phẩm</th>
+        <th>Trạng thái</th>
+        <th>Best Seller</th>
+        <th>Ngày nhập</th>
+        <th>Mô tả sản phẩm</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSP</td>
+            @*<td>@item.DanhMucSP.TenDM</td>*@
+            <td>@item.TenSP</td>
+            <td>
+                <img src="@item.AnhSP" width="100" />
+            </td>
+            <td>@Html.FormatValue(item.GiaSP, "{0:#,##}")</td>
+            <td><input type="checkbox" checked="@item.TrangThai" /></td>
+            <td><input type="checkbox" checked="@item.BestSeller" /></td>
+            <td>@Html.FormatValue(item.CreateDate, "{0:dd/MM/yyyy}")</td>
+            <td>@item.MotaSP</td>
+            <td>
+                @Html.ActionLink("Sửa |", "Edit", new { ID = item.MaSP })
+                @Html.ActionLink("| Xóa", "Delete", new { ID = item.MaSP })
+            </td>
+        </tr>
+
+    }
+</table>

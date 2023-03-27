@@ -1,0 +1,42 @@
+﻿@model List<ThiASP.NET.Models.DanhMucSP>
+@{
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+<style>
+    table {
+        border-collapse: collapse;
+    }
+     a.color{
+        color: red;
+    }
+    a.color:hover {
+        color: blue;
+    }
+
+  
+</style>
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+<h2>Danh sác các hãng laptop</h2>
+
+@Html.ActionLink("Thêm mới", "Add", null,  new { @class = "btn btn-lg btn-primary" })
+<table class="table" border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Mã danh mục</th>
+        <th>Tên hãng</th>
+        <th>logo hãng</th>
+        <th>Giới thiệu hãng</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaDM</td>
+            <td>@item.TenDM</td>
+            <td><img src="@item.AnhDM"  width="100" /></td>
+            <td>@item.MoTaDM</td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { ID = item.MaDM })
+                @Html.ActionLink("Xóa", "Delete", new { ID = item.MaDM })
+            </td>
+        </tr>
+    }
+</table>

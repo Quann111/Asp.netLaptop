@@ -1,0 +1,60 @@
+﻿@model  ThiASP.NET.Models.HomeModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutPageUser2.cshtml";
+}
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+@*<h2>Danh muc</h2>
+    <nav class="navbar-header">
+        <ul class="dropdown-menu-left">
+            @foreach (var item in Model.ListDM)
+            {
+                <li><a href=""> @item.TenDM</a></li>
+            }
+        </ul>
+    </nav>*@
+<style>
+    .grid_1_of_3{
+        margin: 50px !important;
+    }
+    .add-cart {
+        margin-top: 5px !important;
+    }
+    h2{
+        width: 300px;
+        height :50px;
+    }
+</style>
+<div class="main">
+    <div class="content">
+        <div style=" text-align: center; " class="content_top">
+            <div  class="justify-content-sm-start">
+                <h3> Products</h3>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            @foreach (var item in Model.ListSanpham)
+            {
+                <div class="grid_1_of_3">
+                    <a href="preview.html"><img src="@item.AnhSP" width="250" /></a>
+                    <h2 style="margin-top:13px;font-size:larger">@item.TenSP </h2>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <h5>@Html.FormatValue(item.GiaSP, "{0:#,##}") $</h5>
+                        </div>
+                        <div class="add-cart">
+                            <button type="button" class="btn btn-outline-primary">
+                                @Html.ActionLink("Add To Cart", "AddToCart", "Cart", new { productID = item.MaSP }, FormMethod.Post)
+                            </button>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ThiASP.NET.Models.Account>
+
+@{
+    ViewBag.Title = "Danhsach";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+
+<h2>Danh sách Tài khoản</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                @Html.ActionLink("Create New", "Them")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TaiKhoan)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MatKhau)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreateDate)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TaiKhoan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MatKhau)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Update", new { id = item.AccountID }) |
+                            @Html.ActionLink("Delete", "Xoa", new { id = item.AccountID }) |
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

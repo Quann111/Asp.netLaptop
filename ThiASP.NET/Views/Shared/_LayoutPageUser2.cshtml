@@ -1,0 +1,154 @@
+﻿
+<!DOCTYPE HTML>
+<head>
+    <title>QTshoP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/assets/Admin/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets/Admin/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="js/startstop-slider.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="headertop_desc">
+                <div class="call">
+                    @*<p>Flinkl<span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>*@
+                </div>
+                <div class="account_desc">
+                    <ul>
+                        <li><a href="/Admin/Home/Register">Register</a></li>
+                        <li><a href="/Admin/Home/Index">Login</a></li>
+
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="header_top">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="" /></a>
+                </div>
+                @*<div class="cart">
+                    <p>
+                        Welcome to our Online Store! <span>Cart:</span><div id="dd" class="wrapper-dropdown-2">
+                            0 item(s) - $0.00
+                            <ul class="dropdown">
+                                <li>you have no items in your Shopping cart</li>
+                            </ul>
+                        </div>
+                    </p>
+                </div>*@
+                <script type="text/javascript">
+                    function DropDown(el) {
+                        this.dd = el;
+                        this.initEvents();
+                    }
+                    DropDown.prototype = {
+                        initEvents: function () {
+                            var obj = this;
+
+                            obj.dd.on('click', function (event) {
+                                $(this).toggleClass('active');
+                                event.stopPropagation();
+                            });
+                        }
+                    }
+
+                    $(function () {
+
+                        var dd = new DropDown($('#dd'));
+
+                        $(document).click(function () {
+                            // all dropdowns
+                            $('.wrapper-dropdown-2').removeClass('active');
+                        });
+
+                    });
+
+                </script>
+                <div class="clear"></div>
+            </div>
+            <div class="header_bottom">
+                <div class="menu">
+                    <ul>
+                        <li><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Cart/Index">Cart</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="search_box">
+                    <form>
+                        <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <ul class="social_icon text_align_center">
+                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="reader">
+                        <a href=""><img style="width: 150px; " src="~/images/logoshop.png" /></a>
+                        <p class="padd_flet40">The ultimate driving machine<br />You’re in good hands	<br />Think different	</p>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <div class="reader">
+                        <h3>Explore</h3>
+                        <ul class="xple_menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="">Products</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="reader">
+                        <h3>Recent Posts</h3>
+                        <ul class="re_post">
+                            @*<li><img src="~/images/laptop/acer.png" alt="#" /></li>
+                                <li><img src="~/images/laptop/Alienware.jpg" alt="#" /></li>
+                                <li><img src="~/images/re_img3.jpg" alt="#" /></li>
+                                <li><img src="~/images/re_img4.jpg" alt="#" /></li>*@
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="reader">
+                        <h3>Contact Us</h3>
+                        <p>Location: <br> 234 Hoang Quoc Viet Bac Tu Liem Ha Noi<br />Contact: 03751605***</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+</body>
+</html>
+
